@@ -23,6 +23,7 @@
 
   <script src="js/i_modernizr-2.7.1.js"></script>
 
+  <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
 
 
 
@@ -42,48 +43,54 @@
             <span class="icon-bar"></span>
           </button>
           <a class="logo" href="index.html"><img src="img/logo.png" alt="Logo" height="40"></a>
-        </div><!--navbar header-->
+        </div>
         <div class="navbar-collapse collapse">
-            <li class="nav navbar-nav navbar-right dropdown">
-               <a href="#" class="dropdown-toggle" data-toggle="dropdown " ><b>Sign In</b> <span class="caret"></span></a>
-               <ul class="nav navbar-nav navbar-right dropdown-menu" id="login-dp">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown " ><b>Sign In</b> <span class="caret"></span></a>
+             <ul id="login-dp" class="nav navbar-nav navbar-right dropdown-menu">
                <li>
                   <div class="row">
                     <div class="col-md-12">
+<<<<<<< HEAD
                       <center>Login via</center>
                          <div class="social-buttons">
                            <a href="#" class="btn btn-fb"> Facebook</a>
                            <a href="#" class="btn btn-tw"> Twitter</a>
                          </div>
                             <center>or</center>
-                      <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-                         <div class="form-group">
-                             <label class="sr-only" for="exampleInputEmail2">Email address</label>
-                             <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-                         </div>
-                         <div class="form-group">
-                             <label class="sr-only" for="exampleInputPassword2">Password</label>
-                             <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                         </div>
-                         <div class="help-block text-right"><a href="">Forget the password ?</a>
-                         </div>
-                         <div class="form-group">
-                           <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-                         </div>
-                         <div class="checkbox">
-                            <label>
-                            <input type="checkbox"> keep me logged-in
-                            </label>
-                         </div>
-                      </form>
-                      <div class="bottom text-center">
-                           New here ? <a href="#signup"><b>Join Us</b></a>
+=======
+                      Login via
+                      <div class="social-buttons">
+                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                       </div>
-                    </div><!-- end col-md-12-->
-                  </div><!--end row-->
-                </li>
-                </ul>
-           </li>
+                            or
+>>>>>>> 3d6e3d46f6008762f0ff0ff9ae508c009318057e
+                      <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                        <div class="form-group">
+                             <label class="sr-only" for="menu_email">Email address</label>
+                             <input type="email" class="form-control" id="menu_email" placeholder="Email address" required>
+                        </div>
+                <div class="form-group">
+                   <label class="sr-only" for="exampleInputPassword2">Password</label>
+                   <input type="password" class="form-control" id="menu_password" placeholder="Password" required>
+                                         <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                </div>
+                <div class="form-group">
+                   <button type="submit" class="btn btn-primary btn-block" id='menu_btnlogin'>Sign in</button>
+                </div>
+                <div class="checkbox">
+                   <label>
+                   <input type="checkbox"> keep me logged-in
+                   </label>
+                </div>
+             </form>
+          </div>
+          <div class="bottom text-center">
+            New here ? <a href="#signup"><b>Join Us</b></a>
+          </div>
+       </div>
+    </li>
+  </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </div>
@@ -165,7 +172,7 @@
     </header>
 
 
-
+<!-- Tutorial section -->
     <section id="tutorial" class="pad-xl">
       <div class="container">
         <div class="row">
@@ -176,6 +183,8 @@
         </div>
       </div>
     </section>
+
+
 <!--the sign up section-->
     <div id="signup" class="pad-xl">
       <div class="container">
@@ -186,12 +195,11 @@
                     Register a new account
                 </h2>
                 <hr>
-                <input type="text" class="form-control" placeholder="Your Name" required="" id="name"><input type="email" class="form-control" placeholder="Email address" required=""
-                 id="email"><input type="password" class="form-control" placeholder="Password" required="" id="password">
+                <input type="text" class="form-control" placeholder="Your Name" required="" id="txtName">
+                <input type="email" class="form-control" placeholder="Email address" required="" id="txtEmail">
+                 <input type="password" class="form-control" placeholder="Password" required="" id="txtPassword">
                 <hr>
-                <button class="btn btn-primary" type="button" id="quickstart-sign-up">
-                    Sign Me Up!
-                </button>
+                <button type="submit" class="btn btn-primary " id='btnSignUp'>Sign up</button>
             </form>
           </div>
         </div>
@@ -207,6 +215,7 @@
     <script src="js/i_bootstrap.min.js"></script>
     <script src="js/i_main.js"></script>
 
+    <script src="js/index_login.js"></script>
 
     </body>
 </html>
