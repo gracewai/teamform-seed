@@ -3,7 +3,7 @@ var member_ready = function(){
 	$('#member_page_controller').hide();
 	$('#text_event_name').text("Error: Invalid event name ");
 	var eventName = getURLParameter("q");
-	if (eventName != null && eventName !== '' ) {
+	if (eventName != null && eventName != '' ) {
 		$('#text_event_name').text("Event name: " + eventName);
 		$('#member_page_controller').show();
 	}
@@ -36,17 +36,22 @@ angular.module('teamform-member-app', ['firebase'])
 			var refPath = getURLParameter("q") + "/member/" + userID;
 			retrieveOnceFirebase(firebase, refPath, function(data) {
 
-				if ( data.child("name").val() != null ) {
+				if ( data.child("name").val() != null )
+				{
 					$scope.userName = data.child("name").val();
-				} else {
+				}
+				else
+				{
 					$scope.userName = "";
 				}
 
 
-				if (data.child("selection").val() != null ) {
+				if (data.child("selection").val() != null )
+				{
 					$scope.selection = data.child("selection").val();
 				}
-				else {
+				else
+				{
 					$scope.selection = [];
 				}
 				$scope.$apply();
