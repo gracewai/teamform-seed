@@ -1,219 +1,203 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="keywords" content="teamform, team">
-  <!-- The meta tags *must* come first in the head; any other head content must come *after* these tags -->
-  <title>teamform - Real-time online team forming app</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-      <!-- libraries and CSS 	  
-		JQuery: Necessary for some bootstrap interactions (v1.12.4 is used)		
-		Bootstrap: Library and CSS for bootstrap framework (v3.3.7 is used)
-		Font-awesome: More icons for the web development (v4.6.3 is used)		
-		site.css: A customized css for our web application. Not from any web framework. 
- -->
+  <title>Team-Forming System</title>
 
- <script src="lib/jquery.min.js"></script>      
- <script src="lib/bootstrap.min.js"></script>      
+  <!-- Bootstrap Core CSS -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
 
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">   
- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">   
+  <!-- Custom CSS -->
+  <link href="css/business-casual.css" rel="stylesheet">
 
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
 
- <!-- Customized libraries shared by pages -->
- <script src="js/site.js"></script>
-
-
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
 
 </head>
+
 <body>
 
+  <div class="brand">Team-forming</div>
+  <div class="address-bar">A real-time online team forming app for any event</div>
 
-  <div class="navbar-wrapper">
 
-   <div class="container">
-    <nav class="navbar navbar-static-top navbar-default">
-     <div class="container">
-      <div class="navbar-header">
-       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-         <span class="sr-only">Toggle navigation</span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-         <span class="icon-bar"></span>
-       </button>
-       <a class="navbar-brand" href="#">teamform</a>
-     </div>
-     <div id="navbar" class="navbar-collapse collapse">
-       <ul class="nav navbar-nav">
 
-        <li class="dropdown">
-         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Menu <span class="caret"></span></a>
-         <ul class="dropdown-menu">
-          <li><a href="#page_about">About teamform</a></li>
-          <li>
-            <a href="#page_team">Development team</a>
-          </li>
-          <li role="separator" class="divider"></li>
-          <li><a href="admin.html">Administrator mode</a></li>
-          <li><a href="team.html">Team Leader mode</a></li>
-          <li><a href="member.html">Team Member mode</a></li>
-        </ul>
-      </li>
+  <div class="container">
 
-      <li class="dropdown">
-       <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Coverage <span class="caret"></span></a>
+    <div class="row">
+      <div class="box">
+        <div class="col-lg-12 text-center">
 
-       <ul class="dropdown-menu">
-        <li>
-         <a href="coverage/index.html" target="_blank">Report</a>
-        </li>
-       <li role="separator" class="divider"></li>
-
-       <li>
-         <a href="unit_tests/test_site.js" target="_blank">test_site.js (sample)</a>
-       </li>
-
-       <li><a href="#">TODO: Add more test cases here... </a></li>
-     </ul>
-   </li>
-
-  </ul>
-  <ul class="nav navbar-nav navbar-right">
-      <li><a href="login.html"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-  </ul>
-</div>
-</div>
-</nav>
-</div>
-</div>
-<!-- A sample login page -->
-<div class="container" id="page_home">
- <div class="row">
-  <div class="col-md-12">
-   <div class="row">
-    <div class="col-md-12">
-
-     <div class="text-center">
-      <h1>teamform</h1>
-      <p>A real-time online team forming app for any event</p>
+          <h2 class="brand-before">
+            <small>Welcome to</small>
+          </h2>
+          <h1 class="brand-name">Team-forming System</h1>
+          <hr class="tagline-divider">
+          <h2>
+            <small>By group:
+              <strong>Yam</strong>
+            </small>
+          </h2>
+        </div>
+      </div>
     </div>
 
-    <br >
+    <div class="row">
+      <div class="box">
+        <div class="col-lg-12">
+          <h2 class="text-center"> Teamform </h2>
+          <p class ="text-center">A real-time online team forming app for any event </p>
+          <div class="text-center">
 
-    <div class="text-center">
+   <input id="input_text" type="text" class="input-lg">
+   <br>
+   <em>Enter a name (e.g. COMP3111-L1, COMP3111-L2 or COMP3111H) to create/join an event</em>
+   <br>
+   <br>
 
-      <input id="input_text" type="text" class="input-lg">
-      <br>
-      <em>Enter a name (e.g. COMP3111-L1, COMP3111-L2 or COMP3111H) to create/join an event</em>
-      <br>
-      <br>
+   <div>
 
-      <div>
-
-       <button id="btn_admin" type="button" class="btn btn-primary" >Administrator</button>
-
-
-
-       <button id="btn_leader" type="button" class="btn btn-primary" >Team Leader</button>
-
-       <button id="btn_member" type="button" class="btn btn-primary" >Member</button>
+      <button id="btn_admin" type="button" class="btn btn-primary" >Administrator</button>
 
 
 
-     </div>
+      <button id="btn_leader" type="button" class="btn btn-primary" >Team Leader</button>
+
+      <button id="btn_member" type="button" class="btn btn-primary" >Member</button>
+
+
+
    </div>
-   <br >
-   <br >
- </div>
 </div>
-<hr >
-</div>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
 
 
-<!-- START THE FEATURETTES -->
-<div class="row featurette" id="page_team">
-  <div class="col-md-12">
-   <h2 class="featurette-heading"> Development Team
-    <br>
-    <span class="text-muted"> Yam</span>
-  </h2>
+    <div class="row">
+      <div class="box">
+        <div class="col-lg-12">
+          <hr>
+          <h2 class="intro-text text-center">What is teamform?
+          </h2>
+          <hr>
+
+          <h2>
+            <small>A real-time online team forming.</small>
+          </h2>
+
+        <h2><small>The following roles are supported in teamform:</small></h2>
+          <h3 class="text-center">Administrator</h3><br>
+          <ul>
+          <li>Be responsible for creating an event for team forming (e.g. COMP3111, COMP3111H, hackUST)</li>
+          <li>Be able to set the minimum and maximum team size for the event (e.g. 5..7 team members in COMP3111 and 5..8 team members in COMP3111H)</li>
+          </ul>
+
+          <h3 class="text-center">Team</h3><br>
+          <ul>
+            <li>Be able to add and remove requests made by members</li>
+						<li>Once a member joins the team, all his/her requests will be deleted</li>
+          </ul>
+
+          <h3 class="text-center">Member</h3><br>
+	  <ul>
+          <li>Be able to request to join multiple teams</li>
+	  </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="box">
+        <div class="col-sm-12">
+          <hr>
+          <h2 class="intro-text text-center">
+            <stronge>Development Team</stronge>
+          </h2>
+          <hr>
+        </div>
+
+        <div class="col-sm-4 text-center">
+          <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+          <h3>Chu Wai Yin
+          </h3>
+          <p>[ITSC email]</p>
+        </div>
+
+        <div class="col-sm-4 text-center">
+          <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+          <h3>Li Wing Yee
+          </h3>
+          <p>[ITSC email]</p>
+        </div>
+
+        <div class="col-sm-4 text-center">
+          <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+          <h3>Ng Wai Sum
+          </h3>
+          <p>[ITSC email]</p>
+        </div>
+
+        <div class="col-sm-4 text-center">
+          <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+          <h3>Ng Wai Wah
+          </h3>
+          <p>[ITSC email]</p>
+        </div>
+
+        <div class="col-sm-4 text-center">
+          <img class="img-responsive" src="http://placehold.it/750x450" alt="">
+          <h3>Wong Chau Shing
+          </h3>
+          <p>[ITSC email]</p>
+        </div>
+
+        <div class="clearfix"></div>
+      </div>
+    </div>
 
 
+  </div>
+  <!-- /.container -->
 
-  <div class="row">
-  <div class="col-lg-3 ">
-    <div class="thumbnail text-center">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=member2&w=150&h=150" class="img-circle img-responsive">
-      <div class="caption">
-       <h4>Chu Wai Yin</h4>
-       <p>[ITSC email]</p>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <p>Copyright &copy; Your Website 2014</p>
+        </div>
+      </div>
+    </div>
+  </footer>
 
-     </div>
-   </div>
- </div> 
+  <!-- jQuery -->
+  <script src="js/jquery.js"></script>
 
-  <div class="col-lg-3 ">
-    <div class="thumbnail text-center">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=member2&w=150&h=150" class="img-circle img-responsive">
-      <div class="caption">
-       <h4>Li Wing Yee </h4>
-       <p>[ITSC email]</p>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="js/bootstrap.min.js"></script>
 
-     </div>
-   </div>
- </div>
-
-
-   <div class="col-lg-3 ">
-    <div class="thumbnail text-center">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=member2&w=150&h=150" class="img-circle img-responsive">
-      <div class="caption">
-       <h4>Ng Wai Sum </h4>
-       <p>[ITSC email]</p>
-
-     </div>
-   </div>
- </div> 
-
-   <div class="col-lg-3 ">
-    <div class="thumbnail text-center">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=member2&w=150&h=150" class="img-circle img-responsive">
-      <div class="caption">
-       <h4>Ng Wai Wah </h4>
-       <p>[ITSC email]</p>
-
-     </div>
-   </div>
- </div>  
-</div> 
-
-
-   <div class="col-lg-3 ">
-    <div class="thumbnail text-center">
-      <img src="https://placeholdit.imgix.net/~text?txtsize=33&txt=member2&w=150&h=150" class="img-circle img-responsive">
-      <div class="caption">
-       <h4>Wong Chau Shing</h4>
-       <p>[ITSC email]</p>
-
-     </div>
-   </div>
- </div> 
-
-
-
-
-</div>
-</div>
-
-
-<!-- JavaScript of this page -->
-<script src="js/index.js"></script>
-
+  <!-- Script to Activate the Carousel -->
+  <script>
+  $('.carousel').carousel({
+    interval: 5000 //changes the speed
+  })
+  </script>
+  <script src="js/index.js"></script>
 
 </body>
 </html>
