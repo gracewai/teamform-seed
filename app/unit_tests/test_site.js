@@ -8,23 +8,18 @@ describe('Test site.js', function() {
 
     it('value within 1 to 3', function() {
       var value = getRandomIntInclusive(1, 3);
-      expect( value>=1 && value <= 3 ).toEqual(true);
+      expect( value >=1 && value <= 3 ).toEqual(true);
     });
 
   });
 
-  describe('getURLParameter testing',function(){
-    var name = getURLParameter('google');
+  describe('getURLParameter testing', function(){
+
+    it('test', function(){
+      var name = getURLParameter('q');
+      expect(name).toEqual(null);
+    });
 
   });
-
-  describe('initalizeFirebase testing',function(){
-    initalizeFirebase();
-  });
-
-
-   describe('retrieveOnceFirebase testing',function(){
-  	 retrieveOnceFirebase();
-   });
 
 });

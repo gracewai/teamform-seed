@@ -25,19 +25,21 @@ function getRandomIntInclusive(min, max) {
 // Please change this function accordingly
 // Reference: https://console.firebase.google.com
 //
-
+var firebaseInitialized = false;
 function initalizeFirebase() {
-
-  // Initialize Firebase
-  var config = {
-  apiKey: "AIzaSyCYkV0-0g47RwZcLh4VbOOT1FtTqnyAuNA",
-  authDomain: "comp3111-project-c4f22.firebaseapp.com", 
-  databaseURL: "https://comp3111-project-c4f22.firebaseio.com",
-  storageBucket: "comp3111-project-c4f22.appspot.com",
-  messagingSenderId: "801945913687"
-  };
-  firebase.initializeApp(config);
-
+  
+  if(!firebaseInitialized){
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyCYkV0-0g47RwZcLh4VbOOT1FtTqnyAuNA",
+      authDomain: "comp3111-project-c4f22.firebaseapp.com",
+      databaseURL: "https://comp3111-project-c4f22.firebaseio.com",
+      storageBucket: "comp3111-project-c4f22.appspot.com",
+      messagingSenderId: "801945913687"
+    };
+    firebaseInitialized = true;
+    firebase.initializeApp(config);
+  }
 }
 
 //
@@ -46,5 +48,5 @@ function initalizeFirebase() {
 //
 
 function retrieveOnceFirebase(firebase, refPath, callbackFunc) {
-	firebase.database().ref(refPath).once("value").then(callbackFunc);
+  firebase.database().ref(refPath).once("value").then(callbackFunc);
 }
