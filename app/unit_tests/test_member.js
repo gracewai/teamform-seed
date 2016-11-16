@@ -26,6 +26,8 @@ describe('Test member.js', function(){
   describe('test',function(){
     it('test',function(){
       member_ready();
+      spyOn(window, 'getURLParameter').and.callFake(function(){return 'peter'});
+      member_ready();
       $scope.userID = "test";
       $scope.loadFunc();
       $scope.saveFunc();
