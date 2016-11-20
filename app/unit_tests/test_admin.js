@@ -38,8 +38,10 @@ describe('Test admin.js', function(){
       $scope.param.minTeamSize=1;
       $scope.param.maxTeamSize=10;
       $scope.changeMinTeamSize(2);
+      $scope.changeMinTeamSize(-10);
       expect($scope.param.minTeamSize).toEqual(3);
       $scope.changeMaxTeamSize(8);
+      $scope.changeMaxTeamSize(-10);
       $scope.saveFunc();
     });
 

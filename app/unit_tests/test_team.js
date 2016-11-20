@@ -28,6 +28,7 @@ describe('Test team.js', function(){
     };
     $scope.changeCurrentTeamSize(1);
     expect($scope.param.currentTeamSize).toEqual(4);
+    $scope.changeCurrentTeamSize(-6);
 
     //process request
     $scope.param.teamMembers=["one","two"];
@@ -35,6 +36,7 @@ describe('Test team.js', function(){
     $scope.processRequest("one");
     $scope.processRequest("aaa");
     $scope.processRequest("bbb");
+    $scope.processRequest("");
 
     //remove member
     $scope.removeMember("one");
