@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="teamform, team">
+    <!-- The meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>teamform - event team page</title>
+
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
+
+    <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+
+    <!-- Material Design Lite CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.orange-indigo.min.css" />
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
+    <!-- Angular Material CDN -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- CSS files -->
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/eventteam.css">
+
+    <!-- Customized libraries shared by pages -->
+    <script src="js/site.js"></script>
+    <script src="js/common.js"></script>
+</head>
+<body>
+    <div ng-app="teamform-eventteam-app" ng-controller="EventTeamCtrl">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+
+            <header>
+                <div class="brand">Team-forming</div>
+                <div class="address-bar">A real-time online team forming app for any event</div>
+            </header>
+<div class="container">
+<div class="row">
+<div class="box">
+<div class="col-lg-12">
+
+<main>
+                
+    <!-- event details -->
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">Minumum Team Size: {{minTeamSize}}</div>
+            <div class="col-sm-6">Maximum Team Size: {{maxTeamSize}}</div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6">Start Date: {{startDate | date:'yyyy-MM-dd'}}</div>
+            <div class="col-sm-6">End Date: {{endDate | date:'yyyy-MM-dd'}}</div>
+        </div>
+        <span>Details: {{details}}</span>
+        <br>
+    </div>
+
+    <md-button class="md-raised" ng-href="admin.html?event={{eventName}}">Modify</md-button>
+
+
+    <div id="team-list">
+        <!-- filter and sort switches -->
+        <div class="container-fluid">
+            <form>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>Filter</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <md-switch ng-model="filterPlacesSwitch" ng-change="filterTeams(filterPlacesSwitch, filterSkillsMatchSwitch)">Places left</md-switch>
+                    </div>
+                    <div class="col-sm-3">
+                        <md-switch ng-model="$parent.filterSkillsMatchSwitch" ng-change="filterTeams(filterPlacesSwitch, filterSkillsMatchSwitch)" ng-if="user">Match my skills</md-switch>
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <span>Sort</span>
+                    </div>
+                    <div class="col-sm-3">
+                        <md-switch ng-model="sortPlacesSwitch" ng-change="sortTeams('places')">Places left</md-switch>
+                    </div>
+                    <div class="col-sm-3">
+                        <md-switch ng-model="$parent.sortSkillsMatchSwitch" ng-change="sortTeams('skillsMatch')" ng-if="user">Match my skills</md-switch>
+                    </div>
+                    <div class="col-sm-3">
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+        <!-- teams -->
+        <md-card ng-repeat="team in teams">
+            <md-card-title>
+                <md-card-title-text>
+                    <span class="md-headline">{{team.name}}</span>
+                    <md-card-title-text ng-repeat="member in team.teamMembers">
+                        <span class="md-subhead">{{member.name}}</span>
+                    </md-card-title-text>
+                </md-card-title-text>
+            </md-card-title>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-if="team.currentTeamSize < team.size" ng-click="requestTeam(team.name)">Request</md-button>
+                <md-button ng-href="team.html?event={{eventName}}&team={{team.name}}">Edit</md-button>
+            </md-card-actions>
+        </md-card>
+    </div>
+
+    <md-button ng-click="createTeam($event)" class="md-secondary md-raised pull-right" aria-label="create team">Create New Team</md-button>
+
+    <br><br><br>
+                
+    </main>
+    </div></div></div></div>
+    </div>
+</div>
+
+
+    <!-- JavaScript of this page -->
+
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
+
+    <script src="lib/firebase.js"></script>
+    <script src="lib/angularfire.min.js"></script>
+
+    <!-- UI Bootstrap CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap.min.js"></script>
+
+    <!-- Angular Material CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+
+    <script src="js/eventteam.js"></script>
+</body>
+</html>
