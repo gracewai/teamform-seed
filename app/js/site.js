@@ -1,4 +1,3 @@
-
 //
 // How to parse parameters from URL string
 // Reference: http://stackoverflow.com/questions/11582512/how-to-get-url-parameters-with-javascript/11582513#11582513
@@ -27,7 +26,7 @@ function getRandomIntInclusive(min, max) {
 //
 var firebaseInitialized = false;
 function initalizeFirebase() {
-  
+
   if(!firebaseInitialized){
     // Initialize Firebase
     var config = {

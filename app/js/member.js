@@ -82,10 +82,6 @@ angular.module('teamform-member-app', ['firebase'])
 				// Finally, go back to the front-end
 				window.location.href= "index.html";
 			});
-
-
-
-
 		}
 	}
 

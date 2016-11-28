@@ -1,17 +1,13 @@
-var admin_ready = function(){
-
+var admin_ready = function() {
 	$('#admin_page_controller').hide();
 	var eventName = getURLParameter("q");
 	$('#text_event_name').text("Event name: " + eventName);
-	if(eventName == null || eventName.trim() == ""){
+	if(eventName == null || eventName.trim() == "") {
 		$('#text_event_name').text("Error: Invalid event name ");
 	}
-
 }
 
-
 $(document).ready(admin_ready);
-
 
 angular.module('teamform-admin-app', ['firebase'])
 .controller('AdminCtrl', ['$scope', '$firebaseObject', '$firebaseArray', function($scope, $firebaseObject, $firebaseArray) {
@@ -57,6 +53,10 @@ angular.module('teamform-admin-app', ['firebase'])
 			//console.error("Error:", error);
 //		});
 
+	refPath = "users";
+	$scope.users = [];
+	$scope.users = $firebaseArray(firebase.database().ref(refPath));
+	console.log($scope.users);
 
 	refPath = eventName + "/team";
 	$scope.team = [];
@@ -67,17 +67,12 @@ angular.module('teamform-admin-app', ['firebase'])
 	$scope.member = [];
 	$scope.member = $firebaseArray(firebase.database().ref(refPath));
 
-
-
 	$scope.changeMinTeamSize = function(delta) {
 		var newVal = $scope.param.minTeamSize + delta;
 		if (newVal >=1 && newVal <= $scope.param.maxTeamSize ) {
 			$scope.param.minTeamSize = newVal;
 		}
-
 		$scope.param.$save();
-
-
 	}
 
 	$scope.changeMaxTeamSize = function(delta) {
@@ -87,17 +82,12 @@ angular.module('teamform-admin-app', ['firebase'])
 		}
 
 		$scope.param.$save();
-
-
 	}
 
 	$scope.saveFunc = function() {
-
 		$scope.param.$save();
-
 		// Finally, go back to the front-end
 		window.location.href= "main.html";
 	}
-
 
 }]);
