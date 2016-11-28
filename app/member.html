@@ -1,135 +1,143 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="teamform-member-app">
-
+<html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <!-- The meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>teamform - member page</title>
 
-  <title>Teamform - admin page<</title>
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
-  <script src="lib/jquery.min.js"></script>
-  <script src="lib/bootstrap.min.js"></script>
+    <!-- Custom CSS -->
+  	<link href="css/business-casual.css" rel="stylesheet">
 
-  <!-- Bootstrap Core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Lite CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.orange-indigo.min.css" />
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 
-  <!-- Custom CSS -->
-  <link href="css/business-casual.css" rel="stylesheet">
+    <!-- Angular Material CDN -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
 
-  <!-- Customized libraries shared by pages -->
-  <script src="js/site.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
-
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <!-- Fonts -->
+ 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+  	<link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
 
-  >
-
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
+    <!-- Customized libraries shared by pages -->
+    <script src="js/site.js"></script>
+    <script src="js/common.js"></script>
 </head>
-
 <body>
+    <div ng-app="teamform-user-app" ng-controller="UserCtrl">
+        <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
 
-  <div class="brand">Team-forming</div>
-  <div class="address-bar">A real-time online team forming app for any event</div>
+            <header>
+            	<div class="brand">Team-forming</div>
+  				<div class="address-bar">A real-time online team forming app for any event</div>
+            </header>
+<main>
+<div class="container">
+<div class="row">
+<div class="box">
+<div class="col-lg-12">
+	<div ng-if="user">
+	<div class="container-fluid">
+	<div class="row">
+		<div class="col-sm-3">
+	  		<img ng-src="{{user.photoURL}}" />
+		</div>
+	    <div class="col-sm-9">
+	       <h2>{{user.email}}</h2>
+	       <div class="row">
+	       <div class="col-sm-4">
+            <span>Skills:</span>
+            <ul>
+                <li ng-repeat="skill in skills">{{skill.$value}}</li>
+            </ul>
+           </div>
+	       <div class="col-sm-8">
+	                    <!-- skills input -->
+            <form>
+                <md-input-container>
+                    <label>Skills</label>
+                    <input id="skillInput" type="text" ng-model="$parent.skillInput" ng-required="true">
+                </md-input-container>
+                <md-button type="submit" ng-click="addSkill()" class="md-raised">Add Skill</md-button>
+            </form>
+	       </div>
+	     </div>
+	 </div></div></div>
 
 
+	<div class="container-fluid">
+	    <div class="row">
+	        <div class="col-sm-6">
+	            <md-subheader>Joined Events</md-subheader>
+	            <md-card ng-repeat="(eventKey, eventValue) in userObj.events">
+	                <md-card-title>
+	                    <md-card-title-text>
+	                        <span class="md-headline">{{eventKey}}</span>
+	                        <span class="md-subhead">{{eventValue.team}}</span>
+	                    </md-card-title-text>
+	                </md-card-title>
+	                <md-card-content ng-if="!eventValue.team">
+	                    <md-subheader>Requests</md-subheader>
+	                    <md-content>
+	                        <md-list ng-cloak>
+	                            <md-list-item ng-repeat="request in eventValue.selection" ng-href="team.html?event={{eventKey}}&team={{request}}">
+	                                <span>{{request}}</span>
+	                            </md-list-item>
+	                        </md-list>
+	                    </md-content>
+	                </md-card-content>
+	            </md-card>
+	        </div>
 
-  <div class="container">
-    <div class="row">
-      <div class="box">
-        <div class="col-lg-12">
-
-          <h1 class="brand-name text-center">Member Page </h1>
-          <h2 id="text_event_name" class= "text-center"></h2>
-          <div id="team_page_controller" ng-controller="MemberCtrl"><br>
-            <div class="row">
-              <div class="col-md-2 col-xs-2"></div>
-              <div class="col-md-8 col-xs-8">
-
-                <form class="form-horizontal">
-                  
-                  <div class="form-group">
-
-                    <label for="inputUserID" class="col-sm-3 control-label">User ID</label>
-
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" id="inputUserID" ng-model="userID" placeholder="Enter your User ID">
+	        <div class="col-sm-6">
+	            <md-subheader>Recommendations</md-subheader>
+	            <md-card ng-repeat="recommendation in recommendations">
+	                <md-card-title>
+	                    <md-card-title-text>
+	                        <span class="md-headline">{{recommendation.eventName}}</span>
+	                    </md-card-title-text>
+	                </md-card-title>
+    <md-card-content>
+        <md-content>
+            <md-list ng-cloak>
+                <md-list-item ng-repeat="team in recommendation.teams" ng-href="team.html?event={{recommendation.eventName}}&team={{team.teamName}}" class="md-3-line">
+                    <div class="md-list-item-text" layout="column">
+                        <p>Team: {{team.teamName}} (Places: {{team.placesLeft}})</p>
+                        <p>Missing Skills match ({{team.missingSkillsMatch.number}}): {{team.missingSkillsMatch.match.join(", ")}}</p>
+                        <p>Skills match ({{team.skillsMatch.number}}): {{team.skillsMatch.match.join(", ")}}</p>
                     </div>
+                    <md-button ng-click="requestTeam(recommendation.eventName, team.teamName)" class="md-secondary">Request</md-button>
+                </md-list-item>
+            </md-list>
+        </md-content>
+    </md-card-content>
+	            </md-card>
+	        </div>
+	    </div>
+	</div>
+	</div>
 
-                    <div class="col-sm-4">
-                      <button type="button" class="btn btn-primary" ng-click="saveFunc();" >Add/Modify</button>
-                      <button type="button" class="btn btn-primary" ng-click="loadFunc();" >Load</button>
-                    </div>
-
-                  </div>
-                  
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-3 control-label">Name</label>
-                    <div class="col-sm-9">
-                      <input type="text" class="form-control" id="inputUserName" ng-model="userName" placeholder="Type in your name">
-                    </div>
-                  </div>
-                  
-                  <!--Input Box for Tags -->
-                  <div class="form-group">
-                    <label for="inputTags" class="col-sm-3 control-label">Tags</label>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" id="inputUserTags" ng-model="userTags" placeholder="Type in your Tag">
-                    </div>
-
-                    <div class="col-sm-4">
-                      <!-- ng-click  = "addTags"-->
-                      <button type="button" class="btn btn-warning" aria-label="Left Align" ng-click="addTags" >+<em>Tag</em></button>
-                    </div>
-
-                  </div>
-
-
-                
-                </form>
-                
-                <div class="row text-left">
-                  <h3>Your team preference:</h3>
-                  <div ng-repeat="team in teams">
-                    <div class="checkbox">
-                      <label><input type="checkbox" value="{{team.$id}}"
-                        ng-checked="selection.indexOf(team.$id) > -1"
-                        ng-click="toggleSelection(team.$id)">
-                        {{team.$id}}</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-
-
-                <div class="col-md-2 col-xs-2"></div>
-              
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <!-- /.container -->
+	<div ng-if="!user">
+	<p>no user is signed in</p>
+	</div>
+</div></div></div></div>
       <footer>
         <div class="container">
           <div class="row">
@@ -139,28 +147,25 @@
           </div>
         </div>
       </footer>
+</main>
 
-      <!-- jQuery -->
-      <script src="js/jquery.js"></script>
+    <!-- JavaScript of this page -->
 
-      <!-- Bootstrap Core JavaScript -->
-      <script src="js/bootstrap.min.js"></script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
 
-      <!-- Script to Activate the Carousel -->
-      <script>
-      $('.carousel').carousel({
-        interval: 5000 //changes the speed
-      })
-      </script>
+    <script src="lib/firebase.js"></script>
+    <script src="lib/angularfire.min.js"></script>
 
-      <!-- Angular and Angular-route libraries (v1.5.7) -->
-      <script src="lib/angular.min.js"></script>
-      <script src="lib/angular-route.min.js"></script>
+    <!-- UI Bootstrap CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap.min.js"></script>
 
-      <!-- Firebase (v3.0.3) and AngularFire (v2.0.0) (after angular library is loaded) -->
-      <script src="lib/firebase.js"></script>
-      <script src="lib/angularfire.min.js"></script>
+    <!-- Angular Material CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
 
-      <script src="js/member.js"></script>
-    </body>
-    </html>
+    <script src="js/member.js"></script>
+</body>
+</html>
