@@ -158,6 +158,7 @@ angular.module("indx-app", ["firebase", "ngMaterial"])
             eventMemberRef.update(member);
 
             window.alert("Joined "+eventName);
+            window.open("eventteam.html?event="+eventName, "_self");
         });
     };
 })

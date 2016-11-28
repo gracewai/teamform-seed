@@ -209,17 +209,17 @@ angular.module("teamform-eventteam-app", ["firebase", "ngMaterial"])
         var teamreqlist = eventRef.child("team").child(teamName).child("request");
         var teamreqarrary = $firebaseArray(teamreqlist);
 //window.alert("run");
-        teamreqarrary.$loaded().then(function(requestss){
-            var req=[];
-            window.alert("run");
-            requestss.forEach(function(request){
-                req.push(request.$value);
-            });
-            if (!req.includes($scope.user.uid)) {
-                req.push({id: $scope.user.uid.$value, name: $scope.user.name.$value});
-            }
-            teamreqlist.set(req);
-        });
+        // teamreqarrary.$loaded().then(function(requestss){
+        //     var req=[];
+        //     window.alert("run");
+        //     requestss.forEach(function(request){
+        //         req.push(request.$value);
+        //     });
+        //     if (!req.includes($scope.user.uid)) {
+        //         req.push({id: $scope.user.uid.$value, name: $scope.user.name.$value});
+        //     }
+        //     teamreqlist.set(req);
+        // });
 
         eventMemberTeamArray.$loaded().then(function(selections) {
             var requests = [];
@@ -233,15 +233,17 @@ angular.module("teamform-eventteam-app", ["firebase", "ngMaterial"])
             if (!requests.includes(teamName)) {
                 requests.push(teamName);
             }
-
+//window.alert("test3");
             // update the record in the event
             eventMemberTeamRef.set(requests);
-            firebase.database().ref().child("events").child($scope.eventName).child("member").child($scope.user.uid).update({name: user.displayName});
-            window.alert(user.displayName);
+//window.alert("test4");
+//            firebase.database().ref().child("events").child($scope.eventName).child("member").child($scope.user.uid).update({name: user.displayName});
+//window.alert("test5");
             // update the record in the user's profile
             userEventRef.set(requests);
 
             window.alert("Team Requested")
+            window.open("main.html","_self");
         });
     };
 })
