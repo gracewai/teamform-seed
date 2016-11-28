@@ -1,5 +1,7 @@
 <!--from http://bootsnipp.com/snippets/featured/fancy-navbar-login-sign-in-form-->
-<html lang="en"><head>
+<html lang="en">
+
+<head>
   <meta charset="utf-8">
   <title>Teamform</title>
   <meta name="keywords" content="">
@@ -7,23 +9,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <meta property="og:title" content="">
-	<meta property="og:type" content="website">
-	<meta property="og:url" content="">
-	<meta property="og:site_name" content="">
-	<meta property="og:description" content="">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="">
+  <meta property="og:description" content="">
 
   <!-- Styles -->
   <link rel="stylesheet" href="css/i_font-awesome.min.css">
   <link rel="stylesheet" href="css/i_animate.css">
-  <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Raleway:400,100,200,300,500,600,700,800,900|Montserrat:400,700' rel='stylesheet'
+    type='text/css'>
 
 
   <link rel="stylesheet" href="css/i_bootstrap.min.css">
   <link rel="stylesheet" href="css/i_main.css">
 
   <script src="js/i_modernizr-2.7.1.js"></script>
-
-  <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.6.1/firebase.js"></script>
 
 
 
@@ -32,185 +34,173 @@
 <body>
 
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="logo" href="index.html"><img src="img/logo.png" alt="Logo" height="40"></a>
-<!--<<<<<<< HEAD-->
-        </div>
-        <div class="signin navbar-collapse collapse">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown " ><b>Sign In</b> <span class="caret"></span></a>
-             <ul id="login-dp" class="nav navbar-nav navbar-right dropdown-menu">
-               <li>
-                  <div class="row">
-<!-->>>>>>> 8b067a6a61484f6b2a399e19b264c220e4e53306-->
-                    <div class="col-md-12">
-                      Login via
-                      <div class="social-buttons">
-                        <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-                        <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-                      </div>
-                            or
-                      <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-<!--<<<<<<< HEAD-->
-                        <div class="form-group">
-                             <label class="sr-only" for="menu_email">Email address</label>
-                             <input type="email" class="form-control" id="menu_email" placeholder="Email address" required>
-                        </div>
-                <div class="form-group">
-                   <label class="sr-only" for="exampleInputPassword2">Password</label>
-                   <input type="password" class="form-control" id="menu_password" placeholder="Password" required>
-                                         <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+        <a class="logo" href="index.html"><img src="img/logo.png" alt="Logo" height="40"></a>
+        <!--<<<<<<< HEAD-->
+      </div>
+      <div class="signin navbar-collapse collapse">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown "><b>Sign In</b> <span class="caret"></span></a>
+        <ul id="login-dp" class="nav navbar-nav navbar-right dropdown-menu">
+          <li>
+            <div class="row">
+              <!-->>>>>>> 8b067a6a61484f6b2a399e19b264c220e4e53306-->
+              <div class="col-md-12">
+                Login via
+                <div class="social-buttons">
+                  <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                  <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
                 </div>
-                <div class="form-group">
-                   <button type="submit" class="btn btn-primary btn-block" id='menu_btnlogin'>Sign in</button>
-                </div>
-                <div class="checkbox">
-                   <label>
+                or
+                <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                  <!--<<<<<<< HEAD-->
+                  <div class="form-group">
+                    <label class="sr-only" for="menu_email">Email address</label>
+                    <input type="email" class="form-control" id="menu_email" placeholder="Email address" required>
+                  </div>
+                  <div class="form-group">
+                    <label class="sr-only" for="exampleInputPassword2">Password</label>
+                    <input type="password" class="form-control" id="menu_password" placeholder="Password" required>
+                    <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                  </div>
+                  <div class="form-group">
+                    <button type="submit" class="btn btn-primary btn-block" id='menu_btnlogin'>Sign in</button>
+                  </div>
+                  <div class="checkbox">
+                    <label>
                    <input type="checkbox"> keep me logged-in
                    </label>
-                </div>
-             </form>
-          </div>
-          <div class="bottom text-center">
-            New here ? <a href="#signup"><b>Join Us</b></a>
-          </div>
-       </div>
-    </li>
-  </ul>
-
-          
-<!--8b067a6a61484f6b2a399e19b264c220e4e53306-->
-        </div><!--/.navbar-collapse -->
-      </div>
-    </div>
-
-    <header>
-      <div class="container">
-        <div class="row">
-          <div class="col-xs-6">
-            <a href="index.html"><img src="img/logo.png" alt="Logo" height="40"></a>
-          </div>
-          <div class="col-xs-6 signin text-right navbar-nav">
-            <li class="nav navbar-nav navbar-right dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><b>Sign In</b> <span class="caret"></span></a>
-			           <ul id="login-dp" class="nav navbar-nav navbar-right dropdown-menu">
-				           <li>
-					            <div class="row">
-  							        <div class="col-md-12">
-    								      Login via
-    								      <div class="social-buttons">
-          									<a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
-          									<a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
-        								  </div>
-                                or
-          								<form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
-          									<div class="form-group">
-          											 <label class="sr-only" for="exampleInputEmail2">Email address</label>
-          											 <input type="email" class="form-control" id="exampleInputEmail2" placeholder="Email address" required>
-										        </div>
-										<div class="form-group">
-											 <label class="sr-only" for="exampleInputPassword2">Password</label>
-											 <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Password" required>
-                                             <div class="help-block text-right"><a href="">Forget the password ?</a></div>
-										</div>
-										<div class="form-group">
-											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
-										</div>
-										<div class="checkbox">
-											 <label>
-											 <input type="checkbox"> keep me logged-in
-											 </label>
-										</div>
-								 </form>
-							</div>
-							<div class="bottom text-center">
-								New here ? <a href="#signup"><b>Join Us</b></a>
-							</div>
-					 </div>
-				</li>
-      </ul>
-          </div>
-        </div>
-
-        <div class="row header-info">
-          <div class="col-sm-10 col-sm-offset-1 text-center">
-            <h1 class="wow fadeIn">An online teamforming platform</h1>
-            <br />
-            <p class="lead wow fadeIn" data-wow-delay="0.5s">Create your team, <br>
-            Achieve with your team.</p>
-            <br />
-
-            <div class="row">
-              <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-                <div class="row">
-                  <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
-                    <a href="#tutorial" class="scroll btn btn-secondary btn-lg">Tutorial</a>
                   </div>
-                  <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.2s">
-                    <a href="#signup" class="scroll btn btn-primary btn-lg">Register</a>
-                  </div>
-                </div><!--End Button Row-->
+                </form>
+              </div>
+              <div class="bottom text-center">
+                New here ? <a href="#signup"><b>Join Us</b></a>
               </div>
             </div>
+          </li>
+        </ul>
 
-          </div>
-        </div>
 
-
+        <!--8b067a6a61484f6b2a399e19b264c220e4e53306-->
       </div>
-    </header>
+      <!--/.navbar-collapse -->
+    </div>
+  </div>
 
-
-<!-- Tutorial section -->
-    <section id="tutorial" class="pad-xl">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 text-center margin-30 wow fadeIn" data-wow-delay="0.6s">
-            <h2><font color="black">Tutorial</font></h2>
-            <p class="lead"><font color="black">See how to use it</font></p>
-          </div>
+  <header>
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-6">
+          <a href="index.html"><img src="img/logo.png" alt="Logo" height="40"></a>
+        </div>
+        <div class="col-xs-6 signin text-right navbar-nav">
+          <li class="nav navbar-nav navbar-right dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><b>Sign In</b> <span class="caret"></span></a>
+            <ul id="login-dp" class="nav navbar-nav navbar-right dropdown-menu">
+              <li>
+                <div class="row">
+                  <div class="col-md-12">
+                    Login via
+                    <div class="social-buttons">
+                      <a href="#" class="btn btn-fb"><i class="fa fa-facebook"></i> Facebook</a>
+                      <a href="#" class="btn btn-tw"><i class="fa fa-twitter"></i> Twitter</a>
+                    </div>
+                    or
+                    <form class="form" role="form" method="post" action="login" accept-charset="UTF-8" id="login-nav">
+                      <div class="form-group">
+                        <label class="sr-only" for="exampleInputEmail2">Email address</label>
+                        <input type="email" class="form-control" id="login_email" placeholder="Email address" required>
+                      </div>
+                      <div class="form-group">
+                        <label class="sr-only" for="exampleInputPassword2">Password</label>
+                        <input type="password" class="form-control" id="login_password" placeholder="Password" required>
+                        <div class="help-block text-right"><a href="">Forget the password ?</a></div>
+                      </div>
+                      <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-block" id="btnLogin">Sign in</button>
+                      </div>
+                      <div class="checkbox">
+                        <label>
+											 <input type="checkbox"> keep me logged-in
+											 </label>
+                      </div>
+                    </form>
+                  </div>
+                  <div class="bottom text-center">
+                    New here ? <a href="#signup"><b>Join Us</b></a>
+                  </div>
+                </div>
+              </li>
+            </ul>
         </div>
       </div>
-    </section>
 
+      <div class="row header-info">
+        <div class="col-sm-10 col-sm-offset-1 text-center">
+          <h1 class="wow fadeIn">An online teamforming platform</h1>
+          <br />
+          <p class="lead wow fadeIn" data-wow-delay="0.5s">Create your team, <br> Achieve with your team.</p>
+          <br />
 
-<!--the sign up section-->
-    <div id="signup" class="pad-xl">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8 col-sm-offset-2 text-center margin-30 ">
-            <form class="form-signin" role="form">
-                <h2 class="form-signin-heading color:#000000">
-                    Register a new account
-                </h2>
-                <hr>
-                <input type="text" class="form-control" placeholder="Your Name" required="" id="txtName">
-                <input type="email" class="form-control" placeholder="Email address" required="" id="txtEmail">
-                 <input type="password" class="form-control" placeholder="Password" required="" id="txtPassword">
-                <hr>
-                <button type="submit" class="btn btn-primary " id='btnSignUp'>Sign up</button>
-            </form>
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+              <div class="row">
+                <div class="col-xs-6 text-right wow fadeInUp" data-wow-delay="1s">
+                  <a href="#tutorial" class="scroll btn btn-secondary btn-lg">Tutorial</a>
+                </div>
+                <div class="col-xs-6 text-left wow fadeInUp" data-wow-delay="1.2s">
+                  <a href="#signup" class="scroll btn btn-primary btn-lg">Register</a>
+                </div>
+              </div>
+              <!--End Button Row-->
+            </div>
           </div>
+
         </div>
       </div>
     </div>
+  </header>
 
-    <!-- Javascript
+
+
+  <!--the sign up section-->
+  <div id="signup" class="pad-xl">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 col-sm-offset-2 text-center margin-30 ">
+          <form class="form-signin" role="form">
+            <h2 class="form-signin-heading color:#000000">
+              Register a new account
+            </h2>
+            <hr>
+            <input type="text" class="form-control" placeholder="Your Name" required="" id="user_name">
+            <input type="email" class="form-control" placeholder="Email address" required="" id="signUp_email">
+            <input type="password" class="form-control" placeholder="Password" required="" id="signUp_password">
+            <hr>
+            <button type="submit" class="btn btn-primary " id='btnSignUp'>Sign up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Javascript
     ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/i_jquery-1.11.0.min.js"><\/script>')</script>
-    <script src="js/i_wow.min.js"></script>
-    <script src="js/i_bootstrap.min.js"></script>
-    <script src="js/i_main.js"></script>
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script>window.jQuery || document.write('<script src="js/i_jquery-1.11.0.min.js"><\/script>')</script>
+  <script src="js/i_wow.min.js"></script>
+  <script src="js/i_bootstrap.min.js"></script>
+  <script src="js/i_main.js"></script>
 
-    <script src="js/index_login.js"></script>
+  <script src="js/index_login.js"></script>
 
-    </body>
+</body>
+
 </html>

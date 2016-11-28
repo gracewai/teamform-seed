@@ -1,59 +1,56 @@
-// (function(){
-//   var config = {
-//     apiKey: "AIzaSyCYkV0-0g47RwZcLh4VbOOT1FtTqnyAuNA",
-//     authDomain: "comp3111-project-c4f22.firebaseapp.com",
-//     databaseURL: "https://comp3111-project-c4f22.firebaseio.com",
-//     storageBucket: "comp3111-project-c4f22.appspot.com",
-//     messagingSenderId: "801945913687"
-//   };
-//   firebase.initializeApp(config);
+(function(){
+
+  var config = {
+    apiKey: "AIzaSyCYkV0-0g47RwZcLh4VbOOT1FtTqnyAuNA",
+    authDomain: "comp3111-project-c4f22.firebaseapp.com",
+    databaseURL: "https://comp3111-project-c4f22.firebaseio.com",
+    storageBucket: "comp3111-project-c4f22.appspot.com",
+    messagingSenderId: "801945913687"
+  };
+  firebase.initializeApp(config);
+  //Login
+  const login_email = document.getElementById('login_email');
+  const login_password = document.getElementById('login_password');
+  const btnLogin = document.getElementById('btnLogin');
+
+  //Sign Up
+  const user_name = document.getElementById('user_name');
+  const signUp_email = document.getElementById('signUp_email');
+  const signUp_password = document.getElementById('signUp_password');
+  const btnSignUp = document.getElementById('btnSignUp');
+
+  //Login event
+  btnLogin.addEventListener('click', e=>{
+    const user_name =  login_username.value;
+    const password = login_password.value;
+    const auth = firebase.auth();
+
+    //sign in 
+    auth.signInWithEmailAndPassword(email,password);
+  });
+
+  //Sign up event
+  btnSignUp.addEventListener('click', e=>{
+    const name = user_name.value;
+    const email = signUp_email.value;
+    const password = signUp_password.value;
+    const auth = firebase.auth();    
+
+    //create a new authentication
+    auth.createUserWithEmailAndPassword(email,password);
+    // sign in the new account
+    auth.signInWithEmailAndPassword(email,password);
 
 
-//   //menu login section
-//   var menu_email = document.getElementById('menu_email');
-//   var menu_password = document.getElementById('menu_password');
-//   var menu_btnlogin = document.getElementById('menu_btnlogin');
+    // create a JSON to store the uid and user name
+    var userId = firebase.auth().currentUser.uid;
+    var setup = firebase.database().ref('user/' + userId);
+    setup.set({
+      User_id: userId,
+      Name: name
+    });
+  });
 
-//   //Sign up section variable
-//   var txtName = document.getElementById('txtName');
-//   var txtEmail = document.getElementById('txtEmail');
-//   var txtPassword = document.getElementById('txtPassword');
-//   var btnSignup = document.getElementById('btnSignUp');
-
-//   menu_btnlogin.addEventListener('click', e=>{
-//   var email = menu_email.value;
-//   var password = menu_password.value;
-//   var auth = firebase.auth();
-//   auth.signInWithEmailAndPassword(email,password);
-// });
-
-
-//   //sign up event
-//   btnSignup.addEventListener('click', e=>{
-
-//     var email = txtEmail.value;
-//     var password = txtPassword.value;
-//     var name = txtName.value;
-
-//     console.log('email');
-//     console.log('name');
-//     var auth = firebase.auth();
-//     auth.createUserWithEmailAndPassword(email,password);
-
-//     //TODO: get user uid, then create the profile of the users
-//     //idk how to get the uid after call the funtion: createUserWithEmailAndPassword()
-
-
-//     // var createAccount = firebase.database().ref('users/' + user.uid);
-//     //
-//     // createAccount.set({
-//     //   Name: name,
-//     //   Email: email
-//     // });
-//     //
-//     // createAccount.set({
-//     //   EventName: null
-//     // });
-
-//   });
-// }()) ;
+  
+  
+}());

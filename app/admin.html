@@ -1,165 +1,176 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="teamform-admin-app">
-
+<html lang="en">
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Team-Forming System</title>
-
-  <script src="lib/jquery.min.js"></script>
-  <script src="lib/bootstrap.min.js"></script>
-
-  <!-- Bootstrap Core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom CSS -->
-  <link href="css/business-casual.css" rel="stylesheet">
-
-  <!-- Customized libraries shared by pages -->
-  <script src="js/site.js"></script>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
-  <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- The meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>Team-Forming System</title>
 
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    
+<!--Bootstrap CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" >
 
 
-  >
+    <!-- Custom CSS -->
+    <link href="css/business-casual.css" rel="stylesheet">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-  <![endif]-->
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css">
 
+    <!-- Material Design Lite CDN -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.orange-indigo.min.css" />
+    <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+
+    <!-- Angular Material CDN -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Customized libraries shared by pages -->
+    <script src="js/site.js"></script>
 </head>
-
 <body>
+      <div ng-app="teamform-admin-app" ng-controller="AdminCtrl">
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+      <header>
+        <div class="brand">Team-forming</div>
+        <div class="address-bar">A real-time online team forming app for any event</div>
+      </header>
 
-  <div class="brand">Team-forming</div>
-  <div class="address-bar">A real-time online team forming app for any event</div>
+<div class="container">
+<div class="row">
+<div class="box">
+<div class="col-lg-12">
+  <h1 class="brand-name text-center">Administrative Page </h1>
+  <h2 id="text_event_name" class= "text-center"></h2>
 
-
-
-  <div class="container">
+  <br>
+    <div class="text-center">
     <div class="row">
-      <div class="box">
-        <div class="col-lg-12">
-          <h1 class="brand-name text-center">Administrative Page </h1>
-          <h2 id="text_event_name" class= "text-center"></h2>
+    <div class="col-md-2 col-xs-2"></div>
+    <div class="col-md-8 col-xs-8 text-left panel">
+      <strong>Minimum Team Size:</strong>
+      <span class="badge">
+              {{param.minTeamSize}}</span>
+      <button><span class="glyphicon glyphicon-plus" ng-click="changeMinTeamSize(1);"></span></button>
+      <button><span class="glyphicon glyphicon-minus" ng-click="changeMinTeamSize(-1);"></span></button>
+      <br><br>
+      <strong>Maximum Team Size: </strong>
+      <span class="badge">
+              {{param.maxTeamSize}}</span>
+      <button><span class="glyphicon glyphicon-plus" ng-click="changeMaxTeamSize(1);"></span></button>
+      <button><span class="glyphicon glyphicon-minus" ng-click="changeMaxTeamSize(-1);"></span></button>
+      <br><br>
+      <button type="button" class="btn btn-primary" ng-click="saveFunc();" >Create/Modify</button>
+      <br><br>
 
-          <div id="admin_page_controller" ng-controller="AdminCtrl"><br>
+    </div></div></div>  
 
-            <div class="row">
-              <div class="col-md-2 col-xs-2"></div>
-              <div class="col-md-8 col-xs-8 text-left ">
+</div></div></div></div>
 
-                <strong>Minimum Team Size:</strong>
-                <span class="badge">
-                  {{param.minTeamSize}}</span>
-                  <button><span class="glyphicon glyphicon-plus" ng-click="changeMinTeamSize(1);"></span></button>
-                  <button><span class="glyphicon glyphicon-minus" ng-click="changeMinTeamSize(-1);"></span></button>
-                  <br><br>
+<div class="container">
+<div class="row">
+<div class="box">
+<div class="col-lg-12">
+  <form>
+      <!-- Datepicker -->
+      <div class="row" ng-cloak>
+      <div flex-gt-xs>
+          <h4>Start Date: </h4>
+          <md-datepicker ng-model="startDate" ng-change="startChange()" ng-required="true" md-placeholder="Enter date"></md-datepicker>
+      </div>
+      <div flex-gt-xs>
+          <h4>End Date: </h4>
+          <md-datepicker ng-model="endDate" md-min-date="minDate" ng-required="true" md-placeholder="Enter date"></md-datepicker>
+      </div>
+      </div>
+      <br><br>
+      <!-- TextArea -->
+      <md-input-container class="md-block">
+          <label>Description: </label>
+          <textarea ng-model="details" rows="2"></textarea>
+      </md-input-container>
+      <button type="submit" class="btn btn-primary" ng-click="saveContent()" >Update</button>
+  </form>
+  <br>
+  <md-button ng-click="automaticTeamForm()" class="md-raised">Automatic Team Form</md-button>
+</div></div></div></div>
 
-                  <strong>Maximum Team Size: </strong>
-                  <span class="badge">
-                    {{param.maxTeamSize}}</span>
-                    <button><span class="glyphicon glyphicon-plus" ng-click="changeMaxTeamSize(1);"></span></button>
-                    <button><span class="glyphicon glyphicon-minus" ng-click="changeMaxTeamSize(-1);"></span></button>
-                    <br><br>
 
-                    <button type="button" class="btn btn-primary" ng-click="saveFunc();" >Create/Modify</button>
+<div class="container">
+<div class="row">
+<div class="box">
+<div class="col-lg-12">
+<div layout="row" layout-align="space-around">
+  <md-content>
+      <md-list>
+          <h3>All teams:</h3>
+          <md-list-item class="md-3-line" ng-repeat="t in team">
+              <div class="md-list-item-text">
+                  <h3><strong> {{t.$id}} </strong></h3>
+                  <h4>Preferred team size: <span class="badge">{{t.size}}</span></h4>
+                  <h4>Current team members: <span class="badge" ng-if="zeroMember(t.teamMembers)">{{0}}</span></h4>
+                  <div ng-repeat="member in t.teamMembers">
+                      <h4>{{member.name}}</h4>
                   </div>
-
-                  <!-- <div class="col-md-2 col-xs-2"></div> -->
-                </div>
-
-
-                <hr>
-
-                <div class="row">
-                  <div class="col-md-6 col-xs-6 text-right" >
-
-                    <h3>All teams:</h3>
-                    <ul class="list-group" ng-repeat="t in team">
-                      <li class="list-group-item list-group-item-info">
-
-                        User ID: {{t.$id}}  <br>
-                        Preferred team size: <span class="badge">{{t.size}}</span> <br>
-                        Current team members: {{t.teamMembers}}
-
-                      </li>
-
-                    </ul>
-
-                  </div>
-
-                  <div class="col-md-6 col-xs-6 text-left">
-
-
-                    <h3>All members:</h3>
-                    <ul class="list-group" ng-repeat="m in member">
-
-                      <li class="list-group-item list-group-item-info">ID = {{m.$id}} <br>
-                        Name = {{m.name}} <br>
-                        request to join the following teams: {{m.selection | json}}</li>
-                      </ul>
-
-                    </div>
-                  </div>
-
-
-                </div>
-
-
-
               </div>
-            </div>
-          </div>
-        </div>
-
-
-        <!-- /.container -->
-        <footer>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-12 text-center">
-                <p>Copyright &copy; Your Website 2014</p>
+              <md-divider ng-if="!$last"></md-divider>
+          </md-list-item>
+      </md-list>
+  </md-content>
+  <md-content>
+      <md-list>
+          <h3>All members:</h3>
+          <md-list-item class="md-3-line" ng-repeat="m in member">
+              <div class="md-list-item-text">
+                  <h3><strong> {{m.name}} </strong></h3>
+                  <h4>request to join the following teams: </h4>
+                  <div ng-repeat="selection in m.selection">
+                      <h4>{{selection}}</h4>
+                  </div>
               </div>
-            </div>
-          </div>
-        </footer>
+              <md-divider ng-if="!$last"></md-divider>
+          </md-list-item>
+      </md-list>
+  </md-content>
+</div>
+</div></div></div></div>
 
-        <!-- jQuery -->
-        <script src="js/jquery.js"></script>
+</div></div>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="js/bootstrap.min.js"></script>
+    <!-- JavaScript of this page -->
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/bootstrap.min.js"></script>
+    <!-- Script to Activate the Carousel -->
+    <script>
+    $('.carousel').carousel({
+      interval: 5000 //changes the speed
+    })
+    </script>
 
-        <!-- Script to Activate the Carousel -->
-        <script>
-        $('.carousel').carousel({
-          interval: 5000 //changes the speed
-        })
-        </script>
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-route.min.js"></script>
 
-        <!-- Angular and Angular-route libraries (v1.5.7) -->
-        <script src="lib/angular.min.js"></script>
-        <script src="lib/angular-route.min.js"></script>
+    <script src="lib/firebase.js"></script>
+    <script src="lib/angularfire.min.js"></script>
 
-        <!-- Firebase (v3.0.3) and AngularFire (v2.0.0) (after angular library is loaded) -->
-        <script src="lib/firebase.js"></script>
-        <script src="lib/angularfire.min.js"></script>
+    <!-- UI Bootstrap CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.2.0/ui-bootstrap.min.js"></script>
 
-        <script src="js/admin.js"></script>
-      </body>
-      </html>
+    <!-- Angular Material CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-messages.min.js"></script>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
