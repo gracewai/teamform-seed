@@ -70,16 +70,22 @@
     </div>
 
     <md-button class="md-raised" ng-href="admin.html?event={{eventName}}">Modify</md-button>
-
+    <br><br>
 
     <div id="team-list">
         <!-- filter and sort switches -->
         <div class="container-fluid">
             <form>
                 <div class="row">
+
+                    <div>
+                        <center><span>Search:<input type="text" placeholder="Type to search" ng-model="searchText">
+                        </span></center>
+                    </div>
                     <div class="col-sm-3">
                         <span>Filter</span>
                     </div>
+
                     <div class="col-sm-3">
                         <md-switch ng-model="filterPlacesSwitch" ng-change="filterTeams(filterPlacesSwitch, filterSkillsMatchSwitch)">Places left</md-switch>
                     </div>
@@ -109,7 +115,7 @@
 
 
         <!-- teams -->
-        <md-card ng-repeat="team in teams">
+        <md-card ng-repeat="team in teams | filter:searchText">
             <md-card-title>
                 <md-card-title-text>
                     <span class="md-headline">{{team.name}}</span>
@@ -123,7 +129,9 @@
                 <md-button ng-href="team.html?event={{eventName}}&team={{team.name}}">Edit</md-button>
             </md-card-actions>
         </md-card>
+
     </div>
+
 
     <md-button ng-click="createTeam($event)" class="md-secondary md-raised pull-right" aria-label="create team">Create New Team</md-button>
 
