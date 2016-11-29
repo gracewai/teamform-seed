@@ -130,9 +130,11 @@ angular.module('teamform-team-app', ['firebase', "ngMaterial"])
     });
 
     var skillsRef = eventTeamRef.child("skills");
+    //eventTeamRef.update({skills: "dummy"});
     $scope.skills = $firebaseArray(skillsRef);
 
     var teamSkillsRef = eventTeamRef.child("teamSkills");
+            eventTeamRef.update({teamSkills: "dummy"});
     $scope.teamSkills = $firebaseArray(teamSkillsRef);
     var teamSkillsArray = [];
     $scope.teamSkills.$loaded().then(function(teamSkills) {
@@ -148,6 +150,7 @@ angular.module('teamform-team-app', ['firebase', "ngMaterial"])
         $scope.requests = [];
 
         angular.forEach(members, function(member) {
+            
             if (member.selection !== undefined && member.selection.includes(teamName)) {
                 $scope.requests.push({uid: member.$id, name: member.name, skills: member.skills});
             }
@@ -171,25 +174,29 @@ angular.module('teamform-team-app', ['firebase', "ngMaterial"])
             member[$scope.currentTeamSize] = {uid: request.uid, name: request.name, skills: request.skills};
             console.log(member);
             eventTeamMembersRef.update(member);
-
+window.alert(request.skills);
             // update the skills that the team have
-            teamSkillsRef.set(addTeamSkills(teamSkillsArray, request.skills));
-
+            //var teamsk = addTeamSkills(teamSkillsArray, request.skills);
+            
+//window.alert("update1");
+            //teamSkillsRef.set(teamsk);
+//window.alert("update2");
             // update the request for the user
             var eventTeamMemberRequestRef = eventTeamMemberRequestsRef.child(request.uid);
             eventTeamMemberRequestRef.update({selection: null});
-
+window.alert("update3");
             // update the team for the event in the user's profile
             var userEventRef = firebase.database().ref().child("users").child(request.uid).child("events").child(eventName);
             userEventRef.update({team: teamName, selection: null});
-
+window.alert("update4");
             // remove the request
             var requestIndex = $scope.requests.indexOf(request);
             $scope.requests.splice(requestIndex, 1);
-
+window.alert("update5");
             // increase the current team size by 1
             eventTeamRef.update({currentTeamSize: $scope.currentTeamSize + 1});
             $scope.currentTeamSize += 1;
+            window.alert("Request Accepted");
         }
     };
 
