@@ -51,7 +51,7 @@ angular.module("indx-app", ["firebase", "ngMaterial"])
 .controller("IndxCtlr", function($scope, $firebaseObject, $firebaseArray, $window, $mdDialog) {
     initializeFirebase();
 
-
+    
     /* Facebook Authentication */
     var pvidr = new firebase.auth.FacebookAuthProvider();
 
@@ -76,6 +76,7 @@ angular.module("indx-app", ["firebase", "ngMaterial"])
     $scope.login = function() {
         firebase.auth().signInWithRedirect(pvidr);
 //        window.alert("Wellcome! "+user.displayName);
+
     };
     // logout function
     $scope.logout = function() {
