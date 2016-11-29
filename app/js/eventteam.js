@@ -41,7 +41,7 @@ angular.module("teamform-eventteam-app", ["firebase", "ngMaterial"])
         $scope.eventName = "test";
     }
 
-
+    var eventRef=firebase.database().ref().child("events").child($scope.eventName);
     /* teams */
     var teamRef = firebase.database().ref().child("events").child($scope.eventName).child("team");
     var teamObj = null;
@@ -181,28 +181,49 @@ angular.module("teamform-eventteam-app", ["firebase", "ngMaterial"])
 
     // create new team function
     $scope.createTeam = function() {
-        var teamNameInput = $mdDialog.prompt()
-            .title("Create a New Team")
-            .ok("Create")
-            .cancel("Cancel");
+        // var teamNameInput = $mdDialog.prompt()
+        //     .title("Create New Team")
+        //     .ok("OK")
+        //     .cancel("Cancel");
 
-        $mdDialog.show(teamNameInput)
-            .then(function(team) {
-                var newTeamRef = teamRef.child(team);
+ //       $mdDialog.show(teamNameInput)
+  //          .then(function(team) {
+                var inputteam = prompt("Enter New Team Name");
+                var newTeamRef = teamRef.child(inputteam);
                 newTeamRef.set({size: parseInt(($scope.minTeamSize + $scope.maxTeamSize) / 2), currentTeamSize: 0});
-            });
+                
+ //           });
+        window.alert("team created");
+        location.reload();
+
     };
 
 
     // request team function
-    $scope.requestTeam = function(teamName) {
+ $scope.requestTeam = function(teamName) {
+        //alert("test)")
         var eventMemberTeamRef = firebase.database().ref().child("events").child($scope.eventName).child("member").child($scope.user.uid).child("selection");
         var userEventRef = firebase.database().ref().child("users").child($scope.user.uid).child("events").child($scope.eventName).child("selection");
         var eventMemberTeamArray = $firebaseArray(eventMemberTeamRef);
 
+        var teamreqlist = eventRef.child("team").child(teamName).child("request");
+        var teamreqarrary = $firebaseArray(teamreqlist);
+//window.alert("run");
+        // teamreqarrary.$loaded().then(function(requestss){
+        //     var req=[];
+        //     window.alert("run");
+        //     requestss.forEach(function(request){
+        //         req.push(request.$value);
+        //     });
+        //     if (!req.includes($scope.user.uid)) {
+        //         req.push({id: $scope.user.uid.$value, name: $scope.user.name.$value});
+        //     }
+        //     teamreqlist.set(req);
+        // });
+
         eventMemberTeamArray.$loaded().then(function(selections) {
             var requests = [];
-
+//window.alert("test2")
             // add the selections stored in the database
             selections.forEach(function(selection) {
                 requests.push(selection.$value);
@@ -212,16 +233,22 @@ angular.module("teamform-eventteam-app", ["firebase", "ngMaterial"])
             if (!requests.includes(teamName)) {
                 requests.push(teamName);
             }
-
+//window.alert("test3");
             // update the record in the event
             eventMemberTeamRef.set(requests);
+//window.alert("test4");
+//            firebase.database().ref().child("events").child($scope.eventName).child("member").child($scope.user.uid).update({name: user.displayName});
+//window.alert("test5");
             // update the record in the user's profile
             userEventRef.set(requests);
+
+            window.alert("Team Requested")
+            window.open("main.html","_self");
         });
     };
 })
 .config(function($mdThemingProvider) {
-    $mdThemingProvider.theme('default')
+    $mdThemingProvider.theme('dark')
     .primaryPalette('orange')
     .accentPalette('indigo');
 });
