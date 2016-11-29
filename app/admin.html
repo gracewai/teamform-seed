@@ -87,30 +87,73 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="box">
+                    <div class="box" style="background: #FFA07A;"">
                         <div class="col-lg-12">
                             <form>
                                 <!-- Datepicker -->
-                                <div class="row" ng-cloak>
-                                    <div flex-gt-xs>
-                                        <h4>Start Date: </h4>
-                                        <md-datepicker ng-model="startDate" ng-change="startChange()" ng-required="true" md-placeholder="Enter date"></md-datepicker>
+<!--                                 <div class="row">
+                                    <div class='col-sm-6'>
+                                        <div class="form-group">
+                                            <div class='input-group date' id='datetimepicker1'>
+                                                <label>Start</label>
+                                                <input ng-model="startDate" type='text' class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div flex-gt-xs>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#datetimepicker1').datetimepicker();
+                                        });
+                                    </script>
+                                </div> -->
+<!--                                 <div class="row">
+                                    <div class='col-sm-6'>
+                                        <div class="form-group">
+                                            <div class='input-group date' id='datetimepicker2'>
+                                                <label>End</label>
+                                                <input ng-model="endDate" type='text' class="form-control" />
+                                                <span class="input-group-addon">
+                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script type="text/javascript">
+                                        $(function () {
+                                            $('#datetimepicker2').datetimepicker();
+                                        });
+                                    </script>
+                                </div> -->
+                                <div class="col-md-3"></div>
+                                <div class="col-md-6">
+                                <div class="row" ng-cloak>
+                                    <div flex-gt-xs style="background: #F08080;">
+                                        <h4>Start Date: </h4>
+                                        <md-datepicker " ng-model="startDate" ng-change="startChange()" ng-required="true" md-placeholder="Enter date"></md-datepicker>
+                                    </div>
+                                    <div flex-gt-xs style="background: #F08080;" class="text-right">
                                         <h4>End Date: </h4>
                                         <md-datepicker ng-model="endDate" md-min-date="minDate" ng-required="true" md-placeholder="Enter date"></md-datepicker>
                                     </div>
-                                </div>
+                                </div></div>
+                                <div class="col-md-3"></div>
                                 <br><br>
                                 <!-- TextArea -->
-                                <md-input-container class="md-block">
+                                
+                                <div class="row">
+                                <div class="col-md-8">
+                                <md-input-container class="md-block" ">
                                     <label>Description: </label>
                                     <textarea ng-model="details" rows="2"></textarea>
                                 </md-input-container>
-                                <button type="submit" class="btn btn-primary" ng-click="saveContent()">Update</button>
+                                </div></div>
+                                <button type="submit" class="btn btn-info" ng-click="saveContent()">Update</button>
                             </form>
                             <br>
-                            <md-button ng-click="automaticTeamForm()" class="md-raised">Automatic Team Form</md-button>
+                            
                         </div>
                     </div>
                 </div>
@@ -156,8 +199,11 @@
                                 <!--</md-content>-->
                             </div>
                         </div>
+                        <md-button ng-click="automaticTeamForm()" class="md-raised">Auto Form</md-button>
                     </div>
+
                 </div>
+
             </div>
 
         </div>
