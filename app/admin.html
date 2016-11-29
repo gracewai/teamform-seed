@@ -140,13 +140,12 @@
                                     </md-list>
                                 <!--</md-content>-->
 
-                                <!--<md-content>-->
-                                    <md-list>
+                                <!--<md-content>-->                                    <md-list>
                                         <h3>All members:</h3>
                                         <md-list-item class="md-3-line" ng-repeat="m in member">
                                             <div class="md-list-item-text">
-                                                <p>{{m.name}}</h3> <p><br>
-                                                <h3><strong>Request to join the following teams: </strong></h3>
+                                                <p><strong>{{m.name}} </strong> <p>
+                                                <p>request to join the following teams:</p>
                                                 <div ng-repeat="selection in m.selection">
                                                     <p>{{selection}}<p>
                                                 </div>
