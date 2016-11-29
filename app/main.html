@@ -64,16 +64,17 @@
                 </h2>
 
                 <h5 ng-if="!user">
-                Login via: 
+                Login via:
                 <md-button ng-click="login()" ng-if="!user" class="md-accent ">
-                  <i class="fa fa-facebook"></i> 
+                  <i class="fa fa-facebook"></i>
                   Facebook</md-button>
+                <md-button ng-click="login()" ng-if="!user" class="md-accent ">
+                  <i class="fa fa-twitter"></i>
+                  Twitter</md-button>
                 </h5>
-                
-                
-                  
-                <md-button ng-click="logout()" ng-if="user" class="md-accent pull-left">Logout</md-button>
-                
+                <md-button ng-href="member.html?event={{eventKey}}"  class="md-accent pull-right">view my profile</md-button>
+                <md-button ng-click="logout()"  class="md-accent pull-left">Logout</md-button>
+
                 <br>
               </div>
             </div>
