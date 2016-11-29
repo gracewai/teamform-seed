@@ -166,6 +166,6 @@ angular.module("indx-app", ["firebase", "ngMaterial"])
 })
 .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
-    .primaryPalette('blue')
+    .primaryPalette('red')
     .accentPalette('blue');
 });

@@ -1,3 +1,5 @@
+<!--source: https://startbootstrap.com/template-overviews/business-casual/-->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,11 +70,19 @@
                 <md-button ng-click="login()" ng-if="!user" class="md-accent ">
                   <i class="fa fa-facebook"></i> 
                   Facebook</md-button>
+                
+                <md-button ng-click="login()" ng-if="!user" class="md-primary ">
+                  <i class="fa fa-google"></i> 
+                  Google</md-button>
+
+                <md-button ng-click="login()" ng-if="!user" class="md-accent ">
+                  <i class="fa fa-twitter"></i> 
+                  Twitter</md-button>
+
                 </h5>
-                
-                
-                  
-                <md-button ng-click="logout()" ng-if="user" class="md-accent pull-left">Logout</md-button>
+
+                <md-button ng-click="logout()" ng-if="user" class="md-accent pull-right">Logout</md-button>
+                <md-button ng-click="logout()" ng-if="user" class="md-primary pull-right">View My Profile</md-button>
                 
                 <br>
               </div>
@@ -189,7 +199,7 @@
                 <p>[ITSC email]</p>
               </div>
 
-              <div class="clearfix"></div>
+              
             </div>
           </div>
         </div>
@@ -203,7 +213,7 @@
             <div class="container">
               <div class="row">
                 <div class="col-lg-12 text-center">
-                  <p>Copyright &copy; Your Website 2014</p>
+                  <p>Copyright &copy; Yam Team-forming System 2016</p>
                 </div>
               </div>
             </div>
