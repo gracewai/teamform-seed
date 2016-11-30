@@ -102,9 +102,14 @@ angular.module("indx-app", ["firebase", "ngMaterial"])
             var userObj = $firebaseObject(userRef);
 
             userRef.update({name: user.displayName});
-
- //           if(user.skills==undefined){
-                userRef.update({skills: "dummy"});
+userRef.child("skills").once('value', function(snapshot) {
+                var exists = (snapshot.val() !==null);
+                if (!exists){
+                    userRef.update({skills: "dummy"});
+                    window.alert("not exist");
+                }
+            }); //           if(user.skills==undefined){
+               // userRef.update({skills: "dummy"});
 //            }
 
             // refresh the scope
