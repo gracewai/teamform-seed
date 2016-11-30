@@ -70,8 +70,7 @@
     <!-- event details -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-4"><x>Minumum Team Size: {{minTeamSize}}</x></div>
-            <div class="col-sm-4"><x>Maximum Team Size: {{maxTeamSize}}</x></div>
+            <div class="col-sm-4"><x>Team Size: {{minTeamSize}} to {{maxTeamSize}}</x></div>
             <br><br>
         </div>
         <div class="row">
@@ -81,7 +80,9 @@
         <span>
             <x>Description: </x>
             <br>
-            <x style="color: #2E8B57; font-size: 15px;">{{details}}<x style="color: #2E8B57;">
+            <div class="col-sm-6" style="background-color: #87CEEB; border-style: solid;">
+            <x style="color: #008080; font-size: 15px;">{{details}}</x>
+            </div>
         </span>
         <br><br>
     </div>
