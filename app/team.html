@@ -97,34 +97,36 @@
       <p style="color: #00008B; font-size: 15px; padding-bottom: 10px;font-family: Impact, Charcoal, sans-serif; padding-right: 10px">Click to kick member!!</p>
       <div ng-repeat="member in members">
         <div class="row">
-          <div class="col-sm-4">
+        <div class="col-sm-7" style="border-style: solid;">
+          <div class="col-sm-8">
             <ul style="color: #D2691E; font-size: 25px; padding-bottom: 0px;font-family: Impact, Charcoal, sans-serif; padding-right: 10px">
               <x>{{member.name}}</x>
               <li><y>Tags: {{member.skills}}</y></li>
             </ul>
           </div>
-          <div class="col-sm-2">
-            <br><br>
+          <div class="col-sm-1">
+            <br>
             <button type="button" class="btn btn-danger" ng-click="removeMember(member)">Remove</button>
           </div>
-        </div>
+        </div></div>
       </div>
 
       <p style="color: #5F9EA0; font-size: 25px; padding-bottom: 5px;font-family: Impact, Charcoal, sans-serif; padding-right: 10px">Requests received:</p>
       <p style="color: #00008B; font-size: 15px; padding-bottom: 10px;font-family: Impact, Charcoal, sans-serif; padding-right: 10px">Click to accept member request!!</p>
       <div ng-repeat="requests in requests">
           <div class="row">
-          <div class="col-sm-4">
+          <div class="col-sm-7" style="border-style: solid;">
+          <div class="col-sm-8">
         <ul style="color: #D2691E; font-size: 25px; padding-bottom: 0px;font-family: Impact, Charcoal, sans-serif; padding-right: 10px">
           <x>{{requests.name}}</x>
           <li><y>Tags: {{requests.skills}}</y></li>
         </ul>
            </div>
            <div class="col-sm-2">
-           <br><br>
+           <br>
         <button type="button" class="btn btn-info" ng-click="addMember(requests)">Accept</button>
            </div>
-           </div>
+           </div></div>
       </div>
     </div></div></div></div>
 
