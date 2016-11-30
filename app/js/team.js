@@ -134,7 +134,7 @@ angular.module('teamform-team-app', ['firebase', "ngMaterial"])
     $scope.skills = $firebaseArray(skillsRef);
 
     var teamSkillsRef = eventTeamRef.child("teamSkills");
-            eventTeamRef.update({teamSkills: "dummy"});
+            eventTeamRef.update({teamSkill: "dummy"});
     $scope.teamSkills = $firebaseArray(teamSkillsRef);
     var teamSkillsArray = [];
     $scope.teamSkills.$loaded().then(function(teamSkills) {
@@ -184,15 +184,15 @@ window.alert(request.skills);
             // update the request for the user
             var eventTeamMemberRequestRef = eventTeamMemberRequestsRef.child(request.uid);
             eventTeamMemberRequestRef.update({selection: null});
-window.alert("update3");
+//window.alert("update3");
             // update the team for the event in the user's profile
             var userEventRef = firebase.database().ref().child("users").child(request.uid).child("events").child(eventName);
             userEventRef.update({team: teamName, selection: null});
-window.alert("update4");
+//window.alert("update4");
             // remove the request
             var requestIndex = $scope.requests.indexOf(request);
             $scope.requests.splice(requestIndex, 1);
-window.alert("update5");
+//window.alert("update5");
             // increase the current team size by 1
             eventTeamRef.update({currentTeamSize: $scope.currentTeamSize + 1});
             $scope.currentTeamSize += 1;
@@ -231,6 +231,8 @@ window.alert("update5");
             $scope.skillInput = null;
         });
     };
+
+
 }])
 .config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')

@@ -89,7 +89,18 @@
         </div>
       </header>
 
-
+<style>
+    x{
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        color: #4B0082;
+        font-size: 20px;
+    }
+    y{
+        font-family: Impact, Charcoal, sans-serif;
+        color: #8B4513;
+        font-size: 20px;
+    }
+</style>
       <main>
 
         <div class="container">
@@ -101,16 +112,16 @@
 
                 <!-- event list -->
                 <div id="event-list">
-                  <md-list>
-                    <md-list-item ng-repeat="(eventKey, eventValue) in events" ng-href="eventteam.html?event={{eventKey}}" class="secondary-button-padding">
-                      <span>{{eventKey}}</span>
-                      <md-button ng-click="joinEvent(eventKey)" ng-if="user" class="md-secondary">Join</md-button>
-                      <md-button ng-href="admin.html?event={{eventKey}}" class="md-secondary">Edit</md-button>
+                  <md-list >
+                    <md-list-item style="background-color: #87CEEB; border-style: solid;" ng-repeat="(eventKey, eventValue) in events" ng-href="eventteam.html?event={{eventKey}}" class="secondary-button-padding">
+                      <span><x>{{eventKey}}</x></span>
+                      <md-button ng-click="joinEvent(eventKey)" ng-if="user" class="md-secondary"><y>Join</y></md-button>
+                      <md-button ng-href="admin.html?event={{eventKey}}" class="md-secondary">Admin mode</md-button>
                     </md-list-item>
                   </md-list>
                 </div>
 
-                <md-button ng-click="createEvent($event)" class="md-raised" aria-label="create event">Create Event</md-button>
+                <button ng-click="createEvent($event)" type="button" class="btn btn-info">Create Event</button>
 
               </div>
             </div>
