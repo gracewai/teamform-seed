@@ -40,6 +40,18 @@
     <!-- Customized libraries shared by pages -->
     <script src="js/site.js"></script>
 </head>
+<style>
+    x{
+        font-family: "Comic Sans MS", cursive, sans-serif;
+        color: #4B0082;
+        font-size: 20px;
+    }
+    y{
+        font-family: Impact, Charcoal, sans-serif;
+        color: #8B4513;
+        font-size: 20px;
+    }
+</style>
 
 <body>
     <div ng-app="teamform-admin-app" ng-controller="AdminCtrl">
@@ -92,40 +104,46 @@
                             <form>
 
                              
-                                <div class="col-md-6">
+                                <div class="col-md-6" style="border-style: solid; background-color: #BDB76B">
                                     <div class="row" ng-cloak>
                                         <div flex-gt-xs class="text-center">
-                                            <h4>Start Date: </h4>
+                                            <h4><x>Start: </x></h4>
                                             <md-datepicker ng-model="startDate " ng-change="startChange() " ng-required="true " md-placeholder="Enter date "></md-datepicker>
+                                            <br><br>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-6" style="border-style: solid; background-color: #BDB76B">
                                     <div class="row" ng-cloak>
                                         <div flex-gt-xs >
-                                            <h4>End Date: </h4>
-                                            <md-datepicker ng-model="endDate " md-min-date="minDate " ng-required="true
-                                                " md-placeholder="Enter date "></md-datepicker>
+                                            <h4><x><center>End: </center></x></h4>
+                                            <center><md-datepicker ng-model="endDate " md-min-date="minDate " ng-required="true
+                                                " md-placeholder="Enter date "></md-datepicker></center>
+                                            <br>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-3 "></div>
+                                <div class="col-md-2 "></div>
                                 <br><br>
                                 <!-- TextArea -->
 
                                 <div class="row ">
                                     <div class="col-md-8 ">
-                                        <md-input-container class="md-block ">
-                                            <br><br>
-                                            <label>Description: </label>
-                                            <textarea ng-model="details " rows="2 "></textarea>
-                                        </md-input-container>
+                                        <br><br>
+              <form>
+                <div class="form-group">
+                  <label for="comment">Description: </label>
+                  <textarea ng-model="details " class="form-control" rows="5"></textarea>
+                </div>
+              </form>
+              <button type="submit " class="btn btn-info " class="text-right" ng-click="saveContent()" >Update</button>
                                     </div>
                                 </div>
+                                <div class="col-md-2 "></div>
                                 
-                                <button type="submit " class="btn btn-info " class="text-right" ng-click="saveContent()" >Update</button>
+                                
                             </form>
                             <br>
 
