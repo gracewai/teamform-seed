@@ -73,7 +73,7 @@ angular.module("teamform-admin-app", ["firebase", "ngMaterial", "ngMessages"])
     $scope.saveFunc = function() {
         $scope.param.$save();
         // Finally, go back to the front-end
-        $window.open("main.html", "_self");
+        $window.open("index.html", "_self");
     };
 
     // Date
